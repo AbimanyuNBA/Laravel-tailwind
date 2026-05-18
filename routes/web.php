@@ -17,3 +17,7 @@ Route::get('/services', function () {
 Route::get('/project', function () {
     return view('project');
 });
+
+Route::get('/founder', function () {
+    return view('founder');
+});
