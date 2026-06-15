@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body class="bg-[#f8f9fa] text-[#333] font-['Segoe_UI',Tahoma,Geneva,Verdana,sans-serif]">
-    
-    @include('partials.navbar')
-
+<x-layout>
+    <x-slot:title>About Us - Narend Studio</x-slot>
     <section id="about" class="w-full max-w-7xl mx-auto py-20 px-5 md:px-[10%] flex flex-col md:flex-row items-center gap-[50px]">
 
         <div class="flex-1 flex justify-center items-center w-full">
@@ -62,9 +50,5 @@
         </div>
 
     </section>
+</x-layout>
 
-        @include('partials.footer')
-
-
-</body>
-</html>

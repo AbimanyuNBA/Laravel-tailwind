@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layanan Kami – Narend Studio</title>
-    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-[#f8f9fa] text-[#333] font-['Segoe_UI',Tahoma,Geneva,Verdana,sans-serif]">
 
-    @include('partials.navbar')
+    <x-navbar/>
 
     <section class="py-[60px] px-[5%] md:py-24 md:px-[8%] bg-white">
         
@@ -54,7 +53,7 @@
         </div>
     </section>
 
-        @include('partials.footer')
+    <x-footer/>
 
 
     <script src="{{ asset('js/script.js') }}"></script>

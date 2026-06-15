@@ -13,26 +13,12 @@
 
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="/" 
-                           class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">
-                           Home
-                        </a>
-                        <a href="/about" 
-                           class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">
-                           About
-                        </a>
-                        <a href="/services" 
-                           class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">
-                           Services
-                        </a>
-                        <a href="/project" 
-                           class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">
-                           Project
-                        </a>
-                        <a href="/founder" 
-                           class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">
-                           Founder
-                        </a>
+                        <x-nav-link href="/"        :active="request()->is('/')">Home</x-nav-link>
+                        <x-nav-link href="/about"   :active="request()->is('about')">About</x-nav-link>
+                        <x-nav-link href="/services" :active="request()->is('services')">Services</x-nav-link>
+                        <x-nav-link href="/project" :active="request()->is('project')">Projects</x-nav-link>
+                        <x-nav-link href="/founder" :active="request()->is('founder')">Founder</x-nav-link>
+                        <x-nav-link href="/blog" :active="request()->is('blog')">Blog</x-nav-link>
                         
                     </div>
                 </div>

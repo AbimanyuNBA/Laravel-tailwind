@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projek Kami – Narend Studio</title>
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
+
 <body class="bg-[#f8f9fa] text-[#333] font-['Segoe_UI',Tahoma,Geneva,Verdana,sans-serif]">
 
-@include('partials.navbar')
+    <x-navbar/>
     <section class="bg-gray-900 text-white py-16 text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000');"></div>
         <div class="relative z-10 max-w-3xl mx-auto px-4">
@@ -87,7 +90,7 @@
         </div>
     </section>
 
-        @include('partials.footer')
+    <x-footer/>
 
 
 </body>
