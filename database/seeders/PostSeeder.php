@@ -9,28 +9,16 @@ class PostSeeder extends Seeder
 {
     public function run(): void
     {
-        Post::create([
-            'title'  => 'Judul Artikel 1',
-            'slug'   => 'judul-artikel-1',
-            'author' => 'Vivin Mahat Putri',
-            'body'   => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                         Quam harum ea ex magni eligendi cumque.',
-        ]);
+        $posts = [
+            ['title' => 'Belajar Laravel 11 untuk Pemula', 'slug' => 'belajar-laravel-11-untuk-pemula', 'author' => 'Vivin Mahat Putri', 'body'=>'lorem ipsun', 'category' => 'Programming', 'published_at' => '2024-05-10'],
+            ['title' => 'Resep Nasi Goreng Spesial', 'slug' => 'resep-nasi-goreng', 'author' => 'Abimanyu','body'=>'Hello World', 'category' => 'Kuliner', 'published_at' => '2024-05-12'],
+            ['title' => 'Review Laptop M3 Terbaru', 'slug' => 'review-laptop-m3-terbaru', 'author' => 'David','body'=>'Hello World', 'category' => 'Teknologi', 'published_at' => '2024-05-15'],
+            ['title' => 'Tips Liburan Murah ke Bali', 'slug' => 'tips-liburan-murah-ke-bali', 'author' => 'Amiril', 'body'=>'Lorem ipsum' , 'category' => 'Travel', 'published_at' => '2024-05-18'],
+            ['title' => 'Manfaat Olahraga Pagi', 'slug' => 'manfaat-olahraga-pagi', 'author' => 'Hawari', 'body'=>'Olahraga itu sehat', 'category' => 'Kesehatan', 'published_at' => '2024-05-20']
+        ];
 
-        Post::create([
-            'title'  => 'Judul Artikel 2',
-            'slug'   => 'judul-artikel-2',
-            'author' => 'Vivin Mahat Putri',
-            'body'   => 'Repudiandae accusamus dolores nemo veniam blanditiis eius 
-                         autem eligendi quasi neque dolorem necessitatibus.',
-        ]);
-
-        Post::create([
-            'title'  => 'Judul Artikel 3',
-            'slug'   => 'judul-artikel-3',
-            'author' => 'Budi Santoso',
-            'body'   => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-                         accusantium doloremque laudantium totam rem aperiam.',
-        ]);
+        foreach($posts as $post) {
+            Post::create($post); 
+        }        
     }
 }

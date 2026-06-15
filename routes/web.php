@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Profile;
+
 
 Route::get('/', function () {
     return view('home',['title' => 'Home Page']);
@@ -23,10 +26,18 @@ Route::get('/founder', function () {
     return view('founder');
 });
 
-Route::get('/blog', function () {
+Route::get('/blog', function (Request $request) {
+    $category = $request->query('category');
+
+    $posts = Post::latest('published_at')
+        ->when($category, function ($query, $category) {
+            return $query->where('category', $category);
+        })
+        ->get();
+
     return view('blog', [
-        'title' => 'Blog',
-        'posts' => Post::all(),   
+        'title' => $category ? "Blog: $category" : "Blog",
+        'posts' => $posts
     ]);
 });
 
@@ -35,5 +46,14 @@ Route::get('/blog/{slug}', function ($slug) {
     return view('post', [
         'title' => $post->title,
         'post'  => $post,
+    ]);
+});
+
+Route::get('/profile', function () {
+    $profile = Profile::first();
+
+    return view('profile', [
+        'title' => 'Profile Founder',
+        'profile' => $profile
     ]);
 });

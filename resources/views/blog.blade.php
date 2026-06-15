@@ -29,9 +29,11 @@
                     <span class="absolute top-6 left-6 bg-[#2563eb] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow">Terbaru</span>
                 </div>
                 <div class="w-full lg:w-1/2 p-8 md:p-12 space-y-4">
-                    <div class="flex items-center gap-4 text-xs font-semibold text-[#64748b]">
-                        <span>{{ $featured->created_at->translatedFormat('d F Y') }}</span>
-                    </div>
+                    <div class="flex items-center gap-3 text-xs font-semibold text-[#64748b]">
+                        <span class="text-[#2563eb] bg-blue-50 px-2.5 py-1 rounded-md">{{ $featured->category }}</span>
+                        <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
+                        <span>{{ \Carbon\Carbon::parse($featured->published_at)->translatedFormat('d F Y') }}</span>
+                    </div>                    
                     <h2 class="text-2xl md:text-3xl font-bold text-[#1e293b] group-hover:text-[#2563eb] transition-colors leading-tight">
                         <a href="/blog/{{ $featured->slug }}">{{ $featured->title }}</a>
                     </h2>
@@ -59,11 +61,16 @@
                             </div>
                             <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
                                 <div class="space-y-2">
-                                    <div class="text-xs font-medium text-[#64748b]">{{ $post->created_at->translatedFormat('d F Y') }} &bull; oleh {{ $post->author }}</div>
-                                    <h4 class="text-lg font-bold text-[#1e293b] group-hover:text-[#2563eb] transition-colors line-clamp-2">
-                                        <a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
-                                    </h4>
-                                    <p class="text-sm text-[#64748b] line-clamp-3">
+<div class="text-xs font-medium text-[#64748b] flex items-center gap-2 flex-wrap">
+    <span class="text-[#2563eb] font-semibold">{{ $post->category }}</span>
+    <span>&bull;</span>
+    <span>{{ \Carbon\Carbon::parse($post->published_at)->translatedFormat('d F Y') }}</span>
+    <span>&bull;</span>
+    <span>oleh {{ $post->author }}</span>
+</div>
+<h4 class="text-lg font-bold text-[#1e293b] group-hover:text-[#2563eb] transition-colors line-clamp-2">
+    <a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
+</h4>                                    <p class="text-sm text-[#64748b] line-clamp-3">
                                         {{ strip_tags($post->body) }}
                                     </p>
                                 </div>
